@@ -20,10 +20,19 @@
             console.log('Lost the connection with the server');
         });
 
-        socket.emit('message', {name: 'Sebastian'});
+        // socket.emit('message', {name: 'Sebastian'});
 
-        socket.on('message', function(payload){
-            console.log('listening:',payload );
+        // socket.on('message', function(payload){
+        //     console.log('listening:',payload );
+        // })
+
+        socket.on('new-message', function(payload){
+            console.log('new-message:', payload );
+        })
+
+        socket.on('active-bands', (payload) => {
+            console.clear();
+            console.table(payload);
         })
 
     </script>
